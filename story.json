@@ -1,8 +1,0 @@
-
-{
-  "inkVersion": 20,
-  "root": [
-    ["^The Moon Below story loaded successfully.\n", "ev", "out", {"->": ".^n(0)"}],
-    ["done", {"#f": 5}]
-  ]
-}
