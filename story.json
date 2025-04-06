@@ -1,0 +1,13 @@
+
+{
+  "inkVersion": 20,
+  "root": [
+    ["^You stand before the gates of Calthra, the moonlit city carved into the mountain's bones.\n", 
+     "^Silver dust swirls around your boots.\n", 
+     "^The wind sings in a dead language.\n", 
+     "ev", 
+     "out", 
+     {"->": ".^n(0)"}],
+    ["done", {"#f": 5}]
+  ]
+}
