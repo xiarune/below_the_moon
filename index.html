@@ -1,69 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
   <title>The Moon Below</title>
-  <script src="https://cdn.jsdelivr.net/npm/inkjs@1.11.1/dist/ink.min.js"></script>
-  <script src="story.js"></script> <!-- load the compiled story -->
   <style>
-    body {
-      font-family: 'Georgia', serif;
-      padding: 40px;
-      background: #f5f5f5;
-    }
-    #story {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .choice {
-      margin-top: 10px;
-    }
-    .choice a {
-      color: #3366cc;
-      text-decoration: none;
-    }
-    .choice a:hover {
-      text-decoration: underline;
-    }
+    body { font-family: 'Georgia', serif; background: #111; color: #eee; padding: 2em; }
+    .choice-button { display: block; margin: 0.5em 0; padding: 0.5em 1em; background: #333; color: #fff; border: none; cursor: pointer; }
+    .choice-button:hover { background: #444; }
   </style>
 </head>
 <body>
-  <div id="story">Loading story...</div>
-  <script>
-    const story = new inkjs.Story(window.storyContent);
-    const storyContainer = document.getElementById("story");
+  <div id="story"></div>
 
-    function continueStory() {
-      while (story.canContinue) {
-        const paragraph = document.createElement("p");
-        paragraph.textContent = story.Continue().trim();
-        storyContainer.appendChild(paragraph);
-      }
+  <!-- InkJS -->
+  <script src="https://cdn.jsdelivr.net/npm/inkjs@1.11.1/dist/ink.min.js"></script>
 
-      story.currentChoices.forEach(choice => {
-        const choicePara = document.createElement("p");
-        const choiceLink = document.createElement("a");
-        choiceLink.textContent = choice.text;
-        choiceLink.href = "#";
-        choiceLink.addEventListener("click", function(event) {
-          event.preventDefault();
-          while (storyContainer.firstChild) {
-            storyContainer.removeChild(storyContainer.firstChild);
-          }
-          story.ChooseChoiceIndex(choice.index);
-          continueStory();
-        });
-        choicePara.className = "choice";
-        choicePara.appendChild(choiceLink);
-        storyContainer.appendChild(choicePara);
-      });
-    }
-
-    continueStory();
-  </script>
+  <!-- Your Story JS -->
+  <script src="story.js"></script>
 </body>
 </html>
+
 
